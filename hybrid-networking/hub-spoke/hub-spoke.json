@@ -2,6 +2,27 @@
     "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "defaultValue": "[replace-with-username]",
+            "metadata": {
+              "description": "The admin username."
+            }
+        },
+        "adminPassword": {
+            "type": "string",
+            "defaultValue": "[replace-with-password]",
+            "metadata": {
+              "description": "The admin user password."
+            }
+        },
+        "sharedKey": {
+            "type": "string",
+            "defaultValue": "[replace-with-shared-key]",
+            "metadata": {
+              "description": "The shared key."
+            }
+        },
         "buildingBlocks": {
             "value": [
                 {
@@ -51,8 +72,8 @@
                             "vmCount": 1,
                             "namePrefix": "jb",
                             "size": "Standard_DS1_v2",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "windows",
                             "virtualNetwork": {
                                 "resourceGroupName": "onprem-vnet-rg",
@@ -74,8 +95,8 @@
                             "vmCount": 1,
                             "namePrefix": "jbl",
                             "size": "Standard_DS1_v2",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "linux",
                             "virtualNetwork": {
                                 "resourceGroupName": "onprem-vnet-rg",
@@ -97,8 +118,8 @@
                             "vmCount": 1,
                             "namePrefix": "hubjb",
                             "computerNamePrefix": "hubjb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "windows",
                             "virtualNetwork": {
                                 "name": "hub-vnet"
@@ -117,8 +138,8 @@
                             "vmCount": 1,
                             "namePrefix": "hubjbl",
                             "computerNamePrefix": "hubjbl",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "linux",
                             "virtualNetwork": {
                                 "name": "hub-vnet"
@@ -169,7 +190,7 @@
                             "resourceGroupName": "hub-vnet-rg",
                             "connectionType": "Vnet2Vnet",
                             "name": "hub-onprem-conn",
-                            "sharedKey": "[replace-with-shared-key]",
+                            "sharedKey": "[parameters('sharedKey')]",
                             "routingWeight": 1,
                             "virtualNetworkGateway1": {
                                 "resourceGroupName": "onprem-vnet-rg",
@@ -189,7 +210,7 @@
                             "resourceGroupName": "onprem-vnet-rg",
                             "connectionType": "Vnet2Vnet",
                             "name": "onprem-hub-conn",
-                            "sharedKey": "[replace-with-shared-key]",
+                            "sharedKey": "[parameters('sharedKey')]",
                             "routingWeight": 1,
                             "virtualNetworkGateway1": {
                                 "resourceGroupName": "hub-vnet-rg",
@@ -273,8 +294,8 @@
                             "vmCount": 1,
                             "namePrefix": "s1jb",
                             "computerNamePrefix": "s1jb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "windows",
                             "virtualNetwork": {
                                 "resourceGroupName": "spoke1-vnet-rg",
@@ -294,8 +315,8 @@
                             "vmCount": 1,
                             "namePrefix": "s1jbl",
                             "computerNamePrefix": "s1jbl",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "linux",
                             "virtualNetwork": {
                                 "resourceGroupName": "spoke1-vnet-rg",
@@ -315,8 +336,8 @@
                             "vmCount": 1,
                             "namePrefix": "s2jb",
                             "computerNamePrefix": "s2jb",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "windows",
                             "virtualNetwork": {
                                 "resourceGroupName": "spoke2-vnet-rg",
@@ -336,8 +357,8 @@
                             "vmCount": 1,
                             "namePrefix": "s2jbl",
                             "computerNamePrefix": "s2jbl",
-                            "adminUsername": "[replace-with-username]",
-                            "adminPassword": "[replace-with-password]",
+                            "adminUsername": "[parameters('adminUsername')]",
+                            "adminPassword": "[parameters('adminPassword')]",
                             "osType": "linux",
                             "virtualNetwork": {
                                 "resourceGroupName": "spoke2-vnet-rg",
